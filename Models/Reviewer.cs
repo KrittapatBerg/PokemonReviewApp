@@ -2,7 +2,7 @@
 {
     public class Reviewer
     {
-        public Guid ReviwerId { get; set; }
+        public int ReviwerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

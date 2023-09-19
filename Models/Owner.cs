@@ -2,7 +2,7 @@
 {
     public class Owner
     {
-        public Guid OwnerId { get; set; }
+        public int OwnerId { get; set; }
         public string OwnerName { get; set; }
         public string Gym { get; set; }
 
