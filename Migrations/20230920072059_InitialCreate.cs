@@ -13,7 +13,8 @@ namespace PokemonReviewApp.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -25,7 +26,8 @@ namespace PokemonReviewApp.Migrations
                 name: "Countries",
                 columns: table => new
                 {
-                    CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CountryName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -37,7 +39,8 @@ namespace PokemonReviewApp.Migrations
                 name: "Pokemon",
                 columns: table => new
                 {
-                    PokemonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PokemonId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     PokemonName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Birthdate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -50,7 +53,8 @@ namespace PokemonReviewApp.Migrations
                 name: "Reviewers",
                 columns: table => new
                 {
-                    ReviwerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReviwerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -63,10 +67,11 @@ namespace PokemonReviewApp.Migrations
                 name: "Owners",
                 columns: table => new
                 {
-                    OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OwnerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gym = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CountryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,8 +88,8 @@ namespace PokemonReviewApp.Migrations
                 name: "PokemonCategories",
                 columns: table => new
                 {
-                    PokemonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    PokemonId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,12 +112,13 @@ namespace PokemonReviewApp.Migrations
                 name: "Reviews",
                 columns: table => new
                 {
-                    ReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    ReviewersReviwerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PokemonsPokemonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ReviewersReviwerId = table.Column<int>(type: "int", nullable: false),
+                    PokemonsPokemonId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -135,8 +141,8 @@ namespace PokemonReviewApp.Migrations
                 name: "PokemonOwners",
                 columns: table => new
                 {
-                    PokemonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    PokemonId = table.Column<int>(type: "int", nullable: false),
+                    OwnerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

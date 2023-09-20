@@ -24,9 +24,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Category", b =>
                 {
-                    b.Property<Guid>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -39,9 +41,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Country", b =>
                 {
-                    b.Property<Guid>("CountryId")
+                    b.Property<int>("CountryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CountryId"), 1L, 1);
 
                     b.Property<string>("CountryName")
                         .IsRequired()
@@ -54,12 +58,14 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Owner", b =>
                 {
-                    b.Property<Guid>("OwnerId")
+                    b.Property<int>("OwnerId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CountryId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OwnerId"), 1L, 1);
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Gym")
                         .IsRequired()
@@ -78,9 +84,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Pokemon", b =>
                 {
-                    b.Property<Guid>("PokemonId")
+                    b.Property<int>("PokemonId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PokemonId"), 1L, 1);
 
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("datetime2");
@@ -96,11 +104,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.PokemonCategory", b =>
                 {
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.HasKey("PokemonId", "CategoryId");
 
@@ -111,11 +119,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.PokemonOwner", b =>
                 {
-                    b.Property<Guid>("PokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("OwnerId")
+                        .HasColumnType("int");
 
                     b.HasKey("PokemonId", "OwnerId");
 
@@ -126,18 +134,20 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Review", b =>
                 {
-                    b.Property<Guid>("ReviewId")
+                    b.Property<int>("ReviewId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("PokemonsPokemonId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
+
+                    b.Property<int>("PokemonsPokemonId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ReviewersReviwerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ReviewersReviwerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -158,9 +168,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Reviewer", b =>
                 {
-                    b.Property<Guid>("ReviwerId")
+                    b.Property<int>("ReviwerId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviwerId"), 1L, 1);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
